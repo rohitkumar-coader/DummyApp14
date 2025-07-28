@@ -1,0 +1,64 @@
+<h1>SignUp Page</h1>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>First Name:</label>
+    <input formControlName="firstName" />
+    <span *ngIf="signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid">First name is required.</span>
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input formControlName="lastName" />
+    <span *ngIf="signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid">Last name is required.</span>
+  </div>
+  <div>
+    <label>Address:</label>
+    <input formControlName="address" />
+    <span *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.invalid">Address is required.</span>
+  </div>
+  <div>
+    <label>Country:</label>
+    <select formControlName="country">
+      <option value="">Select Country</option>
+      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+    </select>
+    <span *ngIf="signupForm.get('country')?.touched && signupForm.get('country')?.invalid">Country is required.</span>
+  </div>
+  <div>
+    <label>Gender:</label>
+    <label><input type="radio" formControlName="gender" value="Male" /> Male</label>
+    <label><input type="radio" formControlName="gender" value="Female" /> Female</label>
+    <span *ngIf="signupForm.get('gender')?.touched && signupForm.get('gender')?.invalid">Gender is required.</span>
+  </div>
+  <div>
+    <label>Email:</label>
+    <input formControlName="email" />
+    <span *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+      <span *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email.</span>
+    </span>
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <span *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+      <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required.</span>
+      <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Min 6 characters.</span>
+    </span>
+  </div>
+  <div>
+    <label>Re-enter Password:</label>
+    <input type="password" formControlName="confirmPassword" />
+    <span *ngIf="signupForm.hasError('passwordMismatch') && signupForm.get('confirmPassword')?.touched">Passwords do not match.</span>
+  </div>
+  <div>
+    <label>Captcha: <b>{{ captchaCode }}</b></label>
+    <input formControlName="captcha" />
+    <span *ngIf="signupForm.get('captcha')?.touched && signupForm.get('captcha')?.invalid">
+      <span *ngIf="signupForm.get('captcha')?.errors?.['required']">Captcha is required.</span>
+      <span *ngIf="signupForm.get('captcha')?.errors?.['invalidCaptcha']">Captcha does not match.</span>
+    </span>
+    <button type="button" (click)="generateCaptcha()">Refresh Captcha</button>
+  </div>
+  <button type="submit">Next</button>
+</form>
+<h1>    </h1>
