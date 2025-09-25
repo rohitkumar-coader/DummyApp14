@@ -8,6 +8,77 @@ import { UserService } from '../user.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  // Slider data and logic for featured projects
+  projects = [
+    {
+      img: 'assets/domysuma-logo.svg',
+      planId: '20255689',
+      title: 'Red Hill Residential Units',
+      width: 'm',
+      length: 'm',
+      area: 'sq m'
+    },
+    {
+      img: 'assets/domysuma-logo.svg',
+      planId: '20255502',
+      title: 'Redhill Residential Units',
+      width: 'm',
+      length: 'm',
+      area: 'sq m'
+    },
+    {
+      img: 'assets/domysuma-logo.svg',
+      planId: '20255389',
+      title: 'The Konza City Shopping Mall',
+      width: 'm',
+      length: 'm',
+      area: 'sq m'
+    },
+    {
+      img: 'assets/domysuma-logo.svg',
+      planId: '20255689',
+      title: 'Red Hill Residential Units',
+      width: 'm',
+      length: 'm',
+      area: 'sq m'
+    },
+    {
+      img: 'assets/domysuma-logo.svg',
+      planId: '20255502',
+      title: 'Redhill Residential Units',
+      width: 'm',
+      length: 'm',
+      area: 'sq m'
+    },
+    {
+      img: 'assets/domysuma-logo.svg',
+      planId: '20255389',
+      title: 'The Konza City Shopping Mall',
+      width: 'm',
+      length: 'm',
+      area: 'sq m'
+    }
+    // Add more projects as needed
+  ];
+
+  sliderIndex = 0;
+  visibleCount = 3; // Show 3 cards at a time, matching previous design
+
+  get visibleProjects() {
+    return this.projects.slice(this.sliderIndex, this.sliderIndex + this.visibleCount);
+  }
+
+  slideLeft() {
+    if (this.sliderIndex > 0) {
+      this.sliderIndex--;
+    }
+  }
+
+  slideRight() {
+    if (this.sliderIndex < this.projects.length - this.visibleCount) {
+      this.sliderIndex++;
+    }
+  }
 displayedColumns: string[] = ['id', 'firstName', 'lastName', 'age','eyeColor', 'email', 'actions'];
   dataSource = new MatTableDataSource<any>();
 
@@ -32,6 +103,6 @@ displayedColumns: string[] = ['id', 'firstName', 'lastName', 'age','eyeColor', '
     this.userService.deleteUser(user.id).subscribe(res => {
       console.log('User deleted:', res);
       this.dataSource.data = this.dataSource.data.filter(u => u.id !== user.id);
-    }); 
+    });
   }
 }

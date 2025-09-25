@@ -33,94 +33,39 @@
     </div>
   <div class="homepage-main">
     <h2 class="homepage-title">Featured Projects</h2>
-    <div class="featured-projects">
-      <!-- Card 1 -->
-      <div class="project-card">
-        <img class="project-card__img" src="assets/domysuma-logo.svg" alt="Red Hill residential units">
-        <div class="project-card__planid">Plan ID: 20255689</div>
-        <div class="project-card__body">
-          <div class="project-card__title">Red Hill Residential Units</div>
-          <div class="project-card__details">
-            <div>
-              <div>Bedroom</div>
-              <div class="project-card__label">Width</div>
-              <div class="project-card__value">m</div>
-            </div>
-            <div>
-              <div>Baths</div>
-              <div class="project-card__label">Length</div>
-              <div class="project-card__value">m</div>
-            </div>
-            <div>
-              <div>Storeys</div>
-              <div class="project-card__label">Area</div>
-              <div class="project-card__value">sq m</div>
-            </div>
-          </div>
-        </div>
-        <div class="project-card__footer">
-          <span>Save plan <span class="project-card__save">&#9825;</span></span>
-          <span class="project-card__viewmore">View More <span style="font-size: 1.1em;">&#8594;</span></span>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="project-card">
-        <img class="project-card__img" src="assets/domysuma-logo.svg" alt="Redhill Residential units">
-        <div class="project-card__planid">Plan ID: 20255502</div>
-        <div class="project-card__body">
-          <div class="project-card__title">Redhill Residential Units</div>
-          <div class="project-card__details">
-            <div>
-              <div>Bedroom</div>
-              <div class="project-card__label">Width</div>
-              <div class="project-card__value">m</div>
-            </div>
-            <div>
-              <div>Baths</div>
-              <div class="project-card__label">Length</div>
-              <div class="project-card__value">m</div>
-            </div>
-            <div>
-              <div>Storeys</div>
-              <div class="project-card__label">Area</div>
-              <div class="project-card__value">sq m</div>
+    <div class="slider-container">
+      <button class="slider-arrow left custom-arrow-btn" (click)="slideLeft()">&#8592;</button>
+      <div class="featured-projects">
+        <div class="project-card" *ngFor="let project of visibleProjects">
+          <img class="project-card__img" [src]="project.img" [alt]="project.title">
+          <div class="project-card__planid">Plan ID: {{project.planId}}</div>
+          <div class="project-card__body">
+            <div class="project-card__title">{{project.title}}</div>
+            <div class="project-card__details">
+              <div>
+                <div>Bedroom</div>
+                <div class="project-card__label">Width</div>
+                <div class="project-card__value">{{project.width}}</div>
+              </div>
+              <div>
+                <div>Baths</div>
+                <div class="project-card__label">Length</div>
+                <div class="project-card__value">{{project.length}}</div>
+              </div>
+              <div>
+                <div>Storeys</div>
+                <div class="project-card__label">Area</div>
+                <div class="project-card__value">{{project.area}}</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="project-card__footer">
-          <span>Save plan <span class="project-card__save">&#9825;</span></span>
-          <span class="project-card__viewmore">View More <span style="font-size: 1.1em;">&#8594;</span></span>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="project-card">
-        <img class="project-card__img" src="assets/domysuma-logo.svg" alt="The Konza city Shopping mall">
-        <div class="project-card__planid">Plan ID: 20255389</div>
-        <div class="project-card__body">
-          <div class="project-card__title">The Konza City Shopping Mall</div>
-          <div class="project-card__details">
-            <div>
-              <div>Bedroom</div>
-              <div class="project-card__label">Width</div>
-              <div class="project-card__value">m</div>
-            </div>
-            <div>
-              <div>Baths</div>
-              <div class="project-card__label">Length</div>
-              <div class="project-card__value">m</div>
-            </div>
-            <div>
-              <div>Storeys</div>
-              <div class="project-card__label">Area</div>
-              <div class="project-card__value">sq m</div>
-            </div>
+          <div class="project-card__footer">
+            <span>Save plan <span class="project-card__save">&#9825;</span></span>
+            <span class="project-card__viewmore">View More <span style="font-size: 1.1em;">&#8594;</span></span>
           </div>
         </div>
-        <div class="project-card__footer">
-          <span>Save plan <span class="project-card__save">&#9825;</span></span>
-          <span class="project-card__viewmore">View More <span style="font-size: 1.1em;">&#8594;</span></span>
-        </div>
       </div>
+      <button class="slider-arrow right custom-arrow-btn" (click)="slideRight()">&#8594;</button>
     </div>
 
   </div>

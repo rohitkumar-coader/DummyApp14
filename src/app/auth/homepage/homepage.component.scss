@@ -1,6 +1,46 @@
+// Slider container and arrow styles
+.slider-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+.slider-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	background: #fff;
+	border: 1px solid #1976d2;
+	color: #1976d2;
+	border-radius: 50%;
+	width: 44px;
+	height: 44px;
+	font-size: 1.7em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 8px #0001;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.slider-arrow.left {
+	left: -28px;
+}
+.slider-arrow.right {
+	right: -28px;
+}
+.slider-arrow:hover, .custom-arrow-btn:focus {
+	background: #1976d2;
+	color: #fff;
+}
+.custom-arrow-btn {
+	outline: none;
+	border: 1.5px solid #1976d2;
+}
 // Homepage Redesign Styles
 .homepage-container {
-	background: #eaf3fa;
 	min-height: 100vh;
 	padding-bottom: 40px;
 }
