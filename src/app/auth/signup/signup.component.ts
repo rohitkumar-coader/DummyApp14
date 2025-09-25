@@ -31,6 +31,10 @@ export class SignupComponent implements OnInit {
     }, { validators: this.passwordMatchValidator });
   }
 
+  stateValueChange(event: any) {
+console.log('State value changed:', event);
+
+  }
   passwordMatchValidator(form: AbstractControl) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
@@ -42,6 +46,8 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.signupForm.value);
+    
     if (this.signupForm.invalid) {
       this.signupForm.markAllAsTouched();
       return;
