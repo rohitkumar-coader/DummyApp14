@@ -9,16 +9,16 @@ import { HomepageComponent } from './homepage/homepage.component';
 const routes: Routes = [
  
   {
-    path:'',
+    path:'auth/login',
     component:LoginComponent,
   },  
   {
-    path:'homepage',
+    path:'home',
     component:HomepageComponent,
   },  
   
   {
-    path:'signup',
+    path:'auth/signup',
     component:SignupComponent
   },
 ];
