@@ -1,11 +1,171 @@
-.app-footer {
-  background: #222;
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.footer {
+  background: #176ca5;
   color: #fff;
-  text-align: center;
-  padding: 1rem 0;
+  padding: 40px 0 0 0;
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  border-radius: 0 0 10px 10px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+  margin: 20px 20px 0 0;
+  min-width: 220px;
+}
+
+.footer-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-section.about {
+  max-width: 320px;
+}
+
+.footer-logo {
+  margin: 10px 0 20px 0;
+}
+
+.footer-section.about p {
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.footer-social a {
+  background: #e3f2fd;
+  color: #176ca5;
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.footer-social a:hover {
+  background: #176ca5;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-section ul li {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-section ul li:hover {
+  color: #e3f2fd;
+}
+
+.footer-section.reviews {
+  min-width: 220px;
+}
+.review-google, .review-trustpilot {
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+}
+.review-score {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.review-trustpilot .stars {
+  color: #ffd700;
+  font-size: 1.3rem;
+}
+
+.footer-bottom {
+  text-align: left;
+  padding: 18px 40px 18px 40px;
+  font-size: 1.1rem;
+  background: none;
+}
+
+// Floating WhatsApp and chat buttons
+.whatsapp-float {
   position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  font-size: 1rem;
+  left: 24px;
+  bottom: 24px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  z-index: 1000;
+  transition: background 0.2s;
+}
+.whatsapp-float:hover {
+  background: #128c7e;
+}
+
+.chat-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: #176ca5;
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  z-index: 1000;
+  transition: background 0.2s;
+}
+.chat-float:hover {
+  background: #0d3c61;
+}
+
+// Responsive
+@media (max-width: 1100px) {
+  .footer-container {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+@media (max-width: 800px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 0 16px;
+  }
+  .footer-section {
+    margin: 20px 0 0 0;
+  }
+  .footer-bottom {
+    padding: 18px 16px;
+  }
 }
